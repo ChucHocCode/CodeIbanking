@@ -1,0 +1,57 @@
+05-Apr-2026 07:57:37.853 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.52
+05-Apr-2026 07:57:37.858 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 23 2026 19:29:07 UTC
+05-Apr-2026 07:57:37.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.52.0
+05-Apr-2026 07:57:37.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+05-Apr-2026 07:57:37.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+05-Apr-2026 07:57:37.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+05-Apr-2026 07:57:37.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-17
+05-Apr-2026 07:57:37.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.12+8-LTS-286
+05-Apr-2026 07:57:37.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+05-Apr-2026 07:57:37.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\CodeCauVuong\apache-tomcat-10.1.52
+05-Apr-2026 07:57:37.860 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\CodeCauVuong\apache-tomcat-10.1.52
+05-Apr-2026 07:57:37.866 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\CodeCauVuong\apache-tomcat-10.1.52\conf\logging.properties
+05-Apr-2026 07:57:37.866 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+05-Apr-2026 07:57:37.866 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+05-Apr-2026 07:57:37.866 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+05-Apr-2026 07:57:37.866 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+05-Apr-2026 07:57:37.866 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+05-Apr-2026 07:57:37.867 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+05-Apr-2026 07:57:37.867 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+05-Apr-2026 07:57:37.867 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+05-Apr-2026 07:57:37.867 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+05-Apr-2026 07:57:37.867 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+05-Apr-2026 07:57:37.867 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\CodeCauVuong\apache-tomcat-10.1.52
+05-Apr-2026 07:57:37.867 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\CodeCauVuong\apache-tomcat-10.1.52
+05-Apr-2026 07:57:37.868 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\CodeCauVuong\apache-tomcat-10.1.52\temp
+05-Apr-2026 07:57:37.903 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.12] using APR version [1.7.6].
+05-Apr-2026 07:57:37.919 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.4 30 Sep 2025]
+05-Apr-2026 07:57:38.105 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+05-Apr-2026 07:57:38.127 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [407] milliseconds
+05-Apr-2026 07:57:38.181 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+05-Apr-2026 07:57:38.181 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.52]
+05-Apr-2026 07:57:38.194 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\docs]
+05-Apr-2026 07:57:38.901 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Apr-2026 07:57:39.134 WARNING [main] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [174] milliseconds.
+05-Apr-2026 07:57:39.260 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\docs] has finished in [1,066] ms
+05-Apr-2026 07:57:39.262 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\examples]
+05-Apr-2026 07:57:41.759 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Apr-2026 07:57:41.853 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\examples] has finished in [2,590] ms
+05-Apr-2026 07:57:41.853 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\host-manager]
+05-Apr-2026 07:57:42.654 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Apr-2026 07:57:42.690 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\host-manager] has finished in [836] ms
+05-Apr-2026 07:57:42.692 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\IBanking]
+05-Apr-2026 07:57:43.560 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Apr-2026 07:57:43.592 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\IBanking] has finished in [899] ms
+05-Apr-2026 07:57:43.593 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\manager]
+05-Apr-2026 07:57:44.260 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Apr-2026 07:57:44.275 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\manager] has finished in [674] ms
+05-Apr-2026 07:57:44.293 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\ROOT]
+05-Apr-2026 07:57:45.018 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+05-Apr-2026 07:57:45.026 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\CodeCauVuong\apache-tomcat-10.1.52\webapps\ROOT] has finished in [749] ms
+05-Apr-2026 07:57:45.034 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+05-Apr-2026 07:57:45.251 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [7123] milliseconds
+05-Apr-2026 22:37:14.519 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+05-Apr-2026 22:37:14.520 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+05-Apr-2026 22:37:15.418 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+05-Apr-2026 22:37:16.133 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+05-Apr-2026 22:37:16.152 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
