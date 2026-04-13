@@ -1,4 +1,5 @@
 package Controller;
+import Config.AppConstants;
 import DAO.AccountDAO;
 import Model.User;
 import jakarta.servlet.ServletException;
@@ -36,26 +37,26 @@ public class HomeServlet extends HttpServlet {
         //getServerContext: bo nho dung chung cua toan server
         if(adminAcc==null){//neu chua co ->tao tk demo
             adminAcc=new Account(
-                    1001,
-                    1000000000.0,
-                    new User(1,"admin", "123","admin")
+                    AppConstants.ADMIN_ACCOUNT_NUMBER,
+                    AppConstants.ADMIN_INITIAL_BALANCE,
+                    new User(1,"admin","123",AppConstants.PASS_ADMIN, AppConstants.ROLE_ADMIN)
             );
-            getServletContext().setAttribute("adminAccount",adminAcc);//luu vao bo nho server
+            getServletContext().setAttribute(AppConstants.CONTEXT_ADMIN_ACCOUNT,adminAcc);//luu vao bo nho server
         }
         if(userAcc==null){
             userAcc=new Account(
-                    1002,
-                    10000000.0,
-                    new User(2,"user","234","user")
+                    AppConstants.USER_ACCOUNT_NUMBER,
+                    AppConstants.USER_INITIAL_BALANCE,
+                    new User(2,"user","234",AppConstants.PASS_USER,AppConstants.ROLE_USER)
             );
-            getServletContext().setAttribute("userAccount",userAcc);
+            getServletContext().setAttribute(AppConstants.CONTEXT_USER_ACCOUNT,userAcc);
         }
 
         //gui du lieu sang jsp
-        request.setAttribute("account", account);
-        request.setAttribute("adminAccount",adminAcc);
-        request.setAttribute("userAccount",userAcc);
-        request.setAttribute("history", History);
+        request.setAttribute(AppConstants.SESSION_ACCOUNT, account);
+        request.setAttribute(AppConstants.CONTEXT_ADMIN_ACCOUNT,adminAcc);
+        request.setAttribute(AppConstants.CONTEXT_USER_ACCOUNT,userAcc);
+        request.setAttribute(AppConstants.SESSION_HISTORY, History);
 
         request.getRequestDispatcher("home.jsp").forward(request, response);
 

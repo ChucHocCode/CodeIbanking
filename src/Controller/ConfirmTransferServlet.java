@@ -1,8 +1,8 @@
 package Controller;
 
 import DAO.AccountDAO;
+import DAO.UserDAO;
 import Model.Account;
-import Model.User;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.annotation.WebServlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/ConfirmTransferServlet")
@@ -35,19 +34,24 @@ public class ConfirmTransferServlet extends HttpServlet {
             request.getRequestDispatcher("transfer.jsp").forward(request, response);
             return;
         }
-        //lay du lieu pin
+        //Lay du lieu PIN
         String pin=request.getParameter("pin");
-
-
-        if(!"2222".equals(pin)){
-            request.setAttribute("error","Ma PIN khong chinh xac!");
-            request.getRequestDispatcher("enterPIN.jsp").forward(request,response);
+        UserDAO userDAO=new UserDAO();
+        String realPin=userDAO.getPinByUserId(account.getUser().getId());
+        if(pin==null || pin.isEmpty()){
+            request.setAttribute("error", "Vui long nhap ma pin");
+            request.getRequestDispatcher("enterPIN.jsp").forward(request, response);
             return;
         }
+        if(!pin.equals(realPin) || realPin==null){
+            request.setAttribute("error","Ma pin k dung!");
+            request.getRequestDispatcher("enterPIN.jsp").forward(request, response);
+            return;
+        }
+
         try{
             //tim account cua nguoi nhan
             AccountDAO accountDAO=new AccountDAO();
-
 
             int receiverAccountNumber=Integer.parseInt(toAccount);
             Account receiver=accountDAO.getAccountByNumber(receiverAccountNumber);
@@ -81,7 +85,7 @@ public class ConfirmTransferServlet extends HttpServlet {
                 request.getRequestDispatcher("enterPIN.jsp").forward(request, response);
             }
         }catch (NumberFormatException  e){
-            response.sendRedirect("transfer.jsp");
+            response.sendRedirect("transfer");
         }
     }
 }

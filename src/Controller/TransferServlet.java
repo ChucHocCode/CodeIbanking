@@ -1,5 +1,6 @@
 package Controller;
 
+import DAO.AccountDAO;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,18 +37,27 @@ public class TransferServlet extends HttpServlet{
         //lay account login
         Account fromAccount=(Account) session.getAttribute("account");
         String myId=String.valueOf(fromAccount.getAccountNumber());
-        //lay du lieu tu form
-        String toAccount=request.getParameter("toAccount");
+
+        String toAccount =request.getParameter("toAccount");
         if(toAccount.equals(myId)){
-            request.setAttribute("error","Khong te chuyen cho tai khoan chinh chu");
+            request.setAttribute("error","Khong the chuyen tien cho tai khoan chinh chu !");
             request.getRequestDispatcher("transfer.jsp").forward(request, response);
+            return;
         }
-        else if("1001".equals(toAccount) ||"1002".equals(toAccount)){
+        try {
+            AccountDAO accountDAO=new AccountDAO();
+            Account acc=accountDAO.getAccountByNumber(Integer.parseInt(toAccount));
+            if(acc==null ) {
+                request.setAttribute("error", "So tai khoan khong ton tai!");
+                request.getRequestDispatcher("transfer.jsp").forward(request, response);
+                return;
+            }
             session.setAttribute("toAccount", toAccount);
             response.sendRedirect("enterAmount.jsp");
-        }else{
-            request.setAttribute("error","So tai khoan khong ton tai!");
-            request.getRequestDispatcher("transfer.jsp").forward(request,response);
+        }catch (NumberFormatException e){
+            request.setAttribute("error","So tai khoan khong hop le!");
+            request.getRequestDispatcher("transfer.jsp").forward(request, response);
         }
+
     }
 }

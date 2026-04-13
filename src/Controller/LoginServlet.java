@@ -1,4 +1,5 @@
 package Controller;
+import Config.AppConstants;
 import DAO.AccountDAO;
 import DAO.UserDAO;
 import Model.Account;
@@ -31,6 +32,10 @@ public class LoginServlet extends HttpServlet{
         }
         String username=usernameParam.trim();
         String password=passwordParam.trim();
+        if(username==null || password==null|| username.trim().isEmpty()|| password.trim().isEmpty()){
+            request.setAttribute("error", "UserName va PassWord khong dc trong");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
         //ktra user
         UserDAO userDAO=new UserDAO();
         User user=userDAO.checkLogin(username, password);
@@ -42,10 +47,12 @@ public class LoginServlet extends HttpServlet{
         }
         HttpSession session=request.getSession();
         //Role admin
-        if("admin".equals(user.getRole())){
-            Account adminAcc=new Account(1001,100000000.0, user);
-            session.setAttribute("account",adminAcc);//dung chung vs homeservlet
-            response.sendRedirect("home");
+        if(AppConstants.ROLE_ADMIN.equals(user.getRole())){
+            Account adminAcc=new Account(AppConstants.ADMIN_ACCOUNT_NUMBER,
+                                        AppConstants.ADMIN_INITIAL_BALANCE,
+                                        user);
+            session.setAttribute(AppConstants.SESSION_ACCOUNT, adminAcc);
+            response.sendRedirect(AppConstants.HOME_PAGE);
             return;
         }
         //ROLE USER
@@ -57,8 +64,8 @@ public class LoginServlet extends HttpServlet{
             return;
         }
         account.setUser(user);
-        session.setAttribute("account", account);
-        response.sendRedirect("home");
+        session.setAttribute(AppConstants.SESSION_ACCOUNT,account);
+        response.sendRedirect(AppConstants.HOME_PAGE);
 
 
     }

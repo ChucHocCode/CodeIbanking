@@ -3,29 +3,29 @@ package DAO;
 import Model.User;
 import java.sql.*;
 public class UserDAO {
-    private Connection conn;
-    public UserDAO (){
-        conn=DBConnection.getConnect();
-    }
 
     //1.login
     public User checkLogin(String UserName, String PassWord){
-        try{
+        String sql="SELECT*FROM User WHERE UserName=? AND PassWord=?";
 
-            String sql="SELECT*FROM User WHERE UserName=? AND PassWord=?";
+        try(Connection conn=DBConnection.getConnect()){
+
             PreparedStatement ps=conn.prepareStatement(sql);
             ps.setString(1,UserName.trim());
             ps.setString(2,PassWord.trim());
-            ResultSet rs=ps.executeQuery();
-            if(rs.next()){
-                return new User(
-                        rs.getInt("Id"),
-                        rs.getString("UserName"),
-                        rs.getString("PassWord"),
-                        rs.getString("Role")
-                );
-            }else{
-                System.out.println("No user found for username='" + UserName + "'");
+
+            try(ResultSet rs=ps.executeQuery();){
+                if(rs.next()){
+                    return new User(
+                            rs.getInt("Id"),
+                            rs.getString("UserName"),
+                            rs.getString("PassWord"),
+                            rs.getString("PinCode"),
+                            rs.getString("Role")
+                    );
+                }else{
+                    System.out.println("No user found for username='" + UserName + "'");
+                }
             }
         }
         catch (Exception e){
@@ -36,18 +36,23 @@ public class UserDAO {
     }
     //Lay user theo Id
     public User getUserById(int Id){
-        try{
-            String sql="SELECT *FROM User WHERE Id=?";
+        String sql="SELECT *FROM User WHERE Id=?";
+
+        try(Connection conn=DBConnection.getConnect()){
             PreparedStatement ps=conn.prepareStatement(sql);
             ps.setInt(1,Id);
-            ResultSet rs=ps.executeQuery();
-            if(rs.next()){
-                return new User(
-                        rs.getInt("Id"),
-                        rs.getString("UserName"),
-                        rs.getString("PassWord"),
-                        rs.getString("Role")
-                );
+
+            try(ResultSet rs=ps.executeQuery();){
+                if(rs.next()){
+                    return new User(
+                            rs.getInt("Id"),
+                            rs.getString("UserName"),
+                            rs.getString("PassWord"),
+                            rs.getString("PinCode"),
+                            rs.getString("Role")
+
+                    );
+                }
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -58,17 +63,35 @@ public class UserDAO {
     //Tao User moi
     //Nhu la dang ki tai khoan moi vay
     public boolean createUser(User user){
-        try{
-            String sql="INSERT INTO User(UserName,PassWord, Role) VALUES(?,?,?)";
-            PreparedStatement ps=conn.prepareStatement(sql);
+        String sql="INSERT INTO User(UserName,PassWord,PinCode, Role) VALUES(?,?,?,?)";
+        try(Connection conn=DBConnection.getConnect();
+            PreparedStatement ps=conn.prepareStatement(sql)){
+
             ps.setString(1,user.getUserName());
             ps.setString(2, user.getPassWord());
-            ps.setString(3, user.getRole());
+            ps.setString(3,user.getPin());
+            ps.setString(4, user.getRole());
 
             return ps.executeUpdate() >0;
         }catch(Exception e){
             e.printStackTrace();
         }
         return false;
+    }
+    //lay ma pin
+    public String getPinByUserId(int userId){
+        String sql="SELECT PinCode FROM User WHERE Id=?";
+        try(Connection conn=DBConnection.getConnect();
+        PreparedStatement ps=conn.prepareStatement(sql)){
+            ps.setInt(1,userId);
+            try(ResultSet rs= ps.executeQuery()){
+                if(rs.next()){
+                    return rs.getString("PinCode");
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

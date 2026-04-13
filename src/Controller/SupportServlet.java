@@ -18,7 +18,7 @@ public class SupportServlet extends HttpServlet {
         //Lay session hien tai
         HttpSession session=request.getSession(false);
 
-        if(session!= null || session.getAttribute("account")!=null){
+        if(session!= null && session.getAttribute("account")!=null){
             //lay doi tuong account ra truoc
             Model.Account acc=(Model.Account)session.getAttribute("account");
             Model.User user=acc.getUser();

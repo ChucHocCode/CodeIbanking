@@ -9,11 +9,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.annotation.WebServlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @WebServlet("/enterAmount")
-public class enterAmountServlet extends HttpServlet  {
+public class EnterAmountServlet extends HttpServlet  {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException , IOException{
         HttpSession session =request.getSession();
@@ -52,7 +50,7 @@ public class enterAmountServlet extends HttpServlet  {
             //luu du lieu
             session.setAttribute("amount", amount);
             response.sendRedirect("enterPIN.jsp");
-        }catch (Exception e){
+        }catch (NumberFormatException e){//chu yeu la parse so tu Tring ->double nen chi can bat NumberFormatException
             request.setAttribute("error","Amount khong hop le  ");
             request.getRequestDispatcher("enterAmount.jsp").forward(request,response);
         }
